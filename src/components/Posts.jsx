@@ -1,22 +1,42 @@
 import React from 'react';
-import useFetch from '../hooks/useFetch';
-import { useAuth } from '../states/authState';
+import { useAuth } from '../states/authState.jsx';
 
 function Posts() {
-  const { data: posts, loading, error } = useFetch('https://jsonplaceholder.typicode.com/posts');
   const { logout } = useAuth();
 
-  if (loading) return <p>Chargement des posts...</p>;
-  if (error) return <p>Erreur: {error}</p>;
+  // Exemple de posts fictifs mais réalistes
+  const samplePosts = [
+    { id: 1, title: "Actualité Crypto", body: "Bitcoin dépasse les 50k € après une hausse impressionnante." },
+    { id: 2, title: "Actualité Tech", body: "Nouvelle version de React publiée avec des fonctionnalités intéressantes." },
+    { id: 3, title: "Actualité Économie", body: "CAC40 en légère hausse aujourd'hui, les marchés restent volatiles." },
+    { id: 4, title: "Actualité Sport", body: "L'équipe de France remporte un match amical important." },
+    { id: 5, title: "Actualité Climat", body: "Les températures mondiales continuent de surprendre les scientifiques." },
+  ];
 
   return (
-    <div>
-      <button onClick={logout}>Logout</button>
-      <h2>Posts</h2>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <h3>{post.title}</h3>
+    <div style={{ padding: '2rem' }}>
+      <button 
+        onClick={logout} 
+        style={{ marginBottom: '1rem', padding: '0.5rem 1rem', backgroundColor: '#6a0dad', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+      >
+        Logout
+      </button>
+
+      <h2 style={{ color: '#6a0dad', marginBottom: '1rem' }}>Posts</h2>
+
+      <ul style={{ listStyle: 'none', padding: 0 }}>
+        {samplePosts.map((post) => (
+          <li 
+            key={post.id} 
+            style={{ 
+              marginBottom: '1rem', 
+              padding: '1rem', 
+              border: '1px solid #ccc', 
+              borderRadius: '8px', 
+              backgroundColor: '#f3f0f8' 
+            }}
+          >
+            <h3 style={{ color: '#6a0dad' }}>{post.title}</h3>
             <p>{post.body}</p>
           </li>
         ))}

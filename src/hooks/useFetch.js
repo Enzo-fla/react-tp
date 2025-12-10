@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function useFetch(url) {
+function useFetch(url) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -8,7 +8,7 @@ export default function useFetch(url) {
   useEffect(() => {
     fetch(url)
       .then((res) => {
-        if (!res.ok) throw new Error('Erreur lors de la récupération');
+        if (!res.ok) throw new Error('Erreur réseau');
         return res.json();
       })
       .then((json) => setData(json))
@@ -18,3 +18,5 @@ export default function useFetch(url) {
 
   return { data, loading, error };
 }
+
+export default useFetch;

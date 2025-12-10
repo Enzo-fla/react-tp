@@ -1,0 +1,24 @@
+.bitcoin-container {
+  text-align: center;
+  margin-top: 2rem;
+  color: #a678f0;
+}
+
+.btc-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #7b5fff;
+}
+
+.btc-graph {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 1rem;
+}
+
+.btc-graph .bar {
+  width: 10px;
+  background: linear-gradient(to top, #c299ff, #7b5fff);
+  transition: height 0.3s;
+}

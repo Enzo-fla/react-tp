@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAuth } from '../states/authState';
+import { useAuth } from '../states/authState.jsx';
 
 function Login() {
   const { login } = useAuth();
@@ -12,8 +12,8 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
+    <form onSubmit={handleSubmit} style={{ textAlign: 'center', marginTop: '2rem' }}>
+      <h2>Connexion</h2>
       <input
         type="text"
         placeholder="Username"
