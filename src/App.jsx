@@ -19,11 +19,11 @@ function App() {
 
   return (
     <div className="App">
-      <nav>
+      <nav style={{ marginBottom: '1rem' }}>
         <button onClick={() => setPage('posts')}>Posts</button>
         <button onClick={() => setPage('users')}>Utilisateurs</button>
         <button onClick={() => setPage('bitcoin')}>Bitcoin</button>
-        <button onClick={resetSession}>Reset Session</button>
+        <button onClick={resetSession} style={{ marginLeft: '1rem' }}>Reset Session</button>
       </nav>
 
       {page === 'posts' && <Posts />}

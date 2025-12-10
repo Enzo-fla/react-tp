@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import useFetch from '../hooks/useFetch.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+} from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 function Bitcoin() {
   const { data, loading, error } = useFetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=eur&days=7');
